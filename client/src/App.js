@@ -17,7 +17,7 @@ function App() {
       const web3 = getWeb3();
       const accounts = await web3.eth.getAccounts();
       const wallet = await getWallet(web3);
-      const approvers = await wallet.methods.getApprovers();
+      const approvers = await wallet.methods.getApprovers().call();
       const quorum = await wallet.methods.quorum().call();
       /* const approvers = await wallet.methods.getApprovers().call();
       /*const quorum = await wallet.methods.quorum().call(); */

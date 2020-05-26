@@ -7,7 +7,9 @@ const getWeb3 = () => {
 
 const getWallet = async web3 => {
     const networkId = await web3.eth.net.getId();
+    console.log("Wallet:", Wallet.networks);
     const deployedNetwork = Wallet.networks[networkId];
+    console.log(deployedNetwork.address);
     return new web3.eth.Contract(
         Wallet.abi,
         deployedNetwork && deployedNetwork.address
