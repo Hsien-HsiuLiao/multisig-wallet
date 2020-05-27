@@ -3,10 +3,11 @@ import Wallet from './contracts/Wallet.json';
 
 const getWeb3 = () => {
     console.log('getweb3:');
+    
     return new Promise((resolve, reject) => {
         window.addEventListener('load', async () => {
 
-        console.log('windowethereum:', window.ethereum )
+        console.log('window.ethereum:', window.ethereum )
         //if Metamask is present it will inject an ethereum object onto window object
         if(window.ethereum) {
             // Web3( provider object ) , http provider like http://localhost
@@ -27,7 +28,7 @@ const getWeb3 = () => {
 
     //connect to local development blockchain
     //special feature that it accepts transactions without being signed
-     //return new Web3('http://localhost:9545');
+    // return new Web3('http://localhost:9545');
 };
 
 const getWallet = async web3 => {

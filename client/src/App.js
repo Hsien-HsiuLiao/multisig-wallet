@@ -34,15 +34,31 @@ function App() {
   }, []);
 
   const createTransfer = transfer => {
-    wallet.methods
-      .createTransfer(transfer.amount, transfer.to)
-      .send({from: accounts[0]})
+      const newtransfers = async () => {
+        await wallet.methods
+          .createTransfer(transfer.amount, transfer.to)
+          .send({from: accounts[0]});
+        const updated = await wallet.methods.getTransfers().call();
+        setTransfers(updated);
+      };
+      newtransfers();
+    
   }
 
   const approveTransfer = transferId => {
-    wallet.methods
-      .approveTransfer(transferId)
-      .send({from: accounts[0]});
+    const newtransfers = async () => {
+      const refreshAccounts = await web3.eth.getAccounts();
+      console.log('refresh:', refreshAccounts[0]);
+      setAccounts(refreshAccounts);
+      console.log('acounts[0]:', accounts[0]);
+      console.log('selectedAddress:', window.ethereum.selectedAddress )
+      await wallet.methods
+              .approveTransfer(transferId)
+              .send({from: refreshAccounts[0]});
+      const updated = await wallet.methods.getTransfers().call();
+      setTransfers(updated);
+    };
+    newtransfers();
   }
 
   if(
