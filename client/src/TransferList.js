@@ -2,7 +2,7 @@ import React from 'react';
 
 function TransferList({transfers, approveTransfer}) {
     return (
-        <div>
+        <div style={transferListStyle}>
             <h2>Transfers</h2>
             <table>
                 <thead>
@@ -22,7 +22,7 @@ function TransferList({transfers, approveTransfer}) {
                             <td>{transfer.to}</td>
                             <td>
                                 {transfer.approvals}
-                                <button onClick={() => approveTransfer(transfer.id)}>
+                                <button disabled={transfer.approvals === 2} onClick={() => approveTransfer(transfer.id, transfer.approvals)}>
                                 Approve
                                 </button>
                             </td>
@@ -33,6 +33,11 @@ function TransferList({transfers, approveTransfer}) {
             </table>
         </div>
     );
+}
+const transferListStyle = {
+    background: '#333',
+    color: '#fff',
+    padding: '10px'
 }
 
 export default TransferList;

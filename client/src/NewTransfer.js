@@ -5,6 +5,8 @@ function NewTransfer({createTransfer}) {
 
     const submit = e => {
         e.preventDefault();
+        //should check to see if amount or to field is empty
+        // var ammountIsEmpty , toIsEmpty
         createTransfer(transfer);
     }
 
@@ -17,13 +19,13 @@ function NewTransfer({createTransfer}) {
         <div>
             <h2>Create Transfer</h2>
             <form onSubmit={(e) => submit(e)}>
-                <label htmlFor="amount">Amount</label>
+                <label htmlFor="amount"> Amount: </label>
                 <input
                     id="amount"
                     type="text"
                     onChange={e => updateTransfer(e, 'amount')}
                 />
-                <label htmlFor="to">To</label>
+                <label htmlFor="to"> To: </label>
                 <input
                     id="to"
                     type="text"

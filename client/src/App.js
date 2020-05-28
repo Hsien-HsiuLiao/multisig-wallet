@@ -45,7 +45,8 @@ function App() {
     
   }
 
-  const approveTransfer = transferId => {
+  const approveTransfer = (transferId, transferApprovals) => {
+    console.log('transferApprovals:', transferApprovals);
     const newtransfers = async () => {
       const refreshAccounts = await web3.eth.getAccounts();
       console.log('refresh:', refreshAccounts[0]);
@@ -55,8 +56,14 @@ function App() {
       await wallet.methods
               .approveTransfer(transferId)
               .send({from: refreshAccounts[0]});
-      const updated = await wallet.methods.getTransfers().call();
-      setTransfers(updated);
+      const updatedTransfer = await wallet.methods.getTransfers().call();
+      setTransfers(updatedTransfer);
+      /*
+      if (updatedTransfer[transferId].approvals >= 2){
+        console.log('updatedTransfer count:', updatedTransfer[transferId].approvals);
+        document.getElementsByClassName("approveButton").disabled = true;
+      }
+      */
     };
     newtransfers();
   }
@@ -73,7 +80,7 @@ function App() {
 
   return (
     <div>
-      Multisig Dapp
+      <h1 style={{textAlign: 'center', color: '#00f'}}>Multisig Dapp</h1>
       <Header approvers={approvers} quorum={quorum} />
       <NewTransfer createTransfer={createTransfer} />
       <TransferList transfers={transfers} approveTransfer={approveTransfer} />
