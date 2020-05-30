@@ -1,10 +1,12 @@
 import React from 'react';
+import Table from 'react-bootstrap/Table';
 
 function TransferList({transfers, approveTransfer}) {
     return (
-        <div style={transferListStyle}>
+        <div>
+            <div style={transferListStyle}>
             <h2>Transfers</h2>
-            <table>
+            <Table striped bordered hover variant="dark">
                 <thead>
                     <tr>
                         <th>Id</th>
@@ -22,7 +24,7 @@ function TransferList({transfers, approveTransfer}) {
                             <td>{transfer.to}</td>
                             <td>
                                 {transfer.approvals}
-                                <button disabled={transfer.approvals === 2} onClick={() => approveTransfer(transfer.id, transfer.approvals)}>
+                                <button disabled={transfer.approvals == 2} onClick={() => approveTransfer(transfer.id, transfer.approvals)}>
                                 Approve
                                 </button>
                             </td>
@@ -30,8 +32,9 @@ function TransferList({transfers, approveTransfer}) {
                         </tr>
                     ))}
                 </tbody>
-            </table>
-        </div>
+            </Table>
+            </div>
+      </div>
     );
 }
 const transferListStyle = {

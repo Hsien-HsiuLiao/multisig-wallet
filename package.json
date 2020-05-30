@@ -21,6 +21,8 @@
   },
   "homepage": "https://github.com/Hsien-HsiuLiao/multisig-wallet#readme",
   "dependencies": {
-    "@openzeppelin/test-helpers": "^0.5.5"
+    "@openzeppelin/test-helpers": "^0.5.5",
+    "bootstrap": "^4.5.0",
+    "react-bootstrap": "^1.0.1"
   }
 }

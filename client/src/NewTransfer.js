@@ -19,7 +19,7 @@ function NewTransfer({createTransfer}) {
         <div>
             <h2>Create Transfer</h2>
             <form onSubmit={(e) => submit(e)}>
-                <label htmlFor="amount"> Amount: </label>
+                <label htmlFor="amount"> Amount (in Wei): </label>
                 <input
                     id="amount"
                     type="text"
