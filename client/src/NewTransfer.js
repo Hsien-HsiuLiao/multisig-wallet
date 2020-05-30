@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import Button from 'react-bootstrap/Button'
+
 
 function NewTransfer({createTransfer}) {
     const [transfer, setTransfer] = useState(undefined);
@@ -8,12 +10,30 @@ function NewTransfer({createTransfer}) {
         //should check to see if amount or to field is empty
         // var ammountIsEmpty , toIsEmpty
         createTransfer(transfer);
+        handleClick();
     }
 
     const updateTransfer = (e, field) => {
         const value = e.target.value;
         setTransfer({...transfer, [field]: value});
     }
+
+    const [isLoading, setLoading] = useState(false);
+      
+        useEffect(() => {
+          if (isLoading) {
+            simulateNetworkRequest().then(() => {
+              setLoading(false);
+            });
+          }
+        }, [isLoading]);
+
+    const handleClick = () => setLoading(true);
+
+    function simulateNetworkRequest() {
+      return new Promise((resolve) => setTimeout(resolve, 5000));
+    }  
+
 
     return (
         <div>
@@ -25,13 +45,24 @@ function NewTransfer({createTransfer}) {
                     type="text"
                     onChange={e => updateTransfer(e, 'amount')}
                 />
-                <label htmlFor="to"> To: </label>
+                <label htmlFor="to">{' '} To: {' '}</label>
                 <input
                     id="to"
                     type="text"
                     onChange={e => updateTransfer(e, 'to')}
                 />
-                <button>Submit</button>
+                {' '}
+                
+              {  /* <Button variant="primary" type="submit">Submit</Button> */}
+                
+                <Button
+                type="submit"
+                variant="primary"
+                disabled={isLoading}
+          /*  onClick={!isLoading ? handleClick : null} */
+                >
+                {isLoading ? 'Submitting…' : 'Submit'}
+                </Button>
             </form>
         </div>
     )

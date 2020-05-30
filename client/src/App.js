@@ -3,6 +3,8 @@ import { getWeb3, getWallet } from './utils.js';
 import Header from './Header.js';
 import NewTransfer from './NewTransfer.js';
 import TransferList from './TransferList.js';
+import ProgressBar from 'react-bootstrap/ProgressBar';
+
 
 
 function App() {
@@ -75,7 +77,12 @@ function App() {
     || typeof approvers === 'undefined'
     || typeof quorum === 'undefined'
   ) {
-    return <div>Loading...</div>;
+    return (
+      <div>
+            Loading...
+            <ProgressBar animated now={45} />
+      </div>
+      );
   }
 
   return (
