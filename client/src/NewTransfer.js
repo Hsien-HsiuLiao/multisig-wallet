@@ -51,15 +51,13 @@ function NewTransfer({createTransfer}) {
                     type="text"
                     onChange={e => updateTransfer(e, 'to')}
                 />
-                {' '}
-                
-              {  /* <Button variant="primary" type="submit">Submit</Button> */}
-                
+                {' '}             
+                {  /* <Button variant="primary" type="submit">Submit</Button> */}
                 <Button
                 type="submit"
                 variant="primary"
                 disabled={isLoading}
-          /*  onClick={!isLoading ? handleClick : null} */
+                /*  onClick={!isLoading ? handleClick : null} */
                 >
                 {isLoading ? 'Submitting…' : 'Submit'}
                 </Button>
