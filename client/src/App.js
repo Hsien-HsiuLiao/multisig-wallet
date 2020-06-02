@@ -16,6 +16,8 @@ function App() {
   const [approvers, setApprovers] = useState(undefined);
   const [quorum, setQuorum] = useState(undefined);
   const [transfers, setTransfers] = useState([]);
+  //let currentAccount = 0x0;
+  
 
   useEffect(() => {
     const init = async () => {
@@ -30,22 +32,37 @@ function App() {
       setWallet(wallet);
       setApprovers(approvers);
       setQuorum(quorum);
-      setTransfers(transfers) 
+      setTransfers(transfers);
+      window.ethereum.on('accountsChanged', function(accounts) {
+        console.log('eth.on', accounts);
+        //currentAccount = accounts[0];
+        //console.log('currentAccount:', currentAccount)
+        setAccounts(accounts);
+        });
+        
     };
     init();
+    
   }, []);
 
-  const createTransfer = transfer => {
-      const newtransfers = async () => {
+  //const createTransfer = transfer => {
+    const createTransfer = async (transfer) => {
+      //const newtransfers = async () => {
         await wallet.methods
           .createTransfer(transfer.amount, transfer.to)
           .send({from: accounts[0]});
-        const updated = await wallet.methods.getTransfers().call();
-        setTransfers(updated);
-      };
-      newtransfers();
+       // const updated = await wallet.methods.getTransfers().call();
+        //setTransfers(updated);
+        setTransfers(await wallet.methods.getTransfers().call());
+     // };
+     // newtransfers();
     
   }
+
+  const { ethereum } = window;
+  ethereum.on('accountsChanged', function() {
+     console.log('eth.on approveTransfer');
+   });
 
   const approveTransfer = (transferId, transferApprovals) => {
     console.log('transferApprovals:', transferApprovals);
@@ -55,6 +72,8 @@ function App() {
       setAccounts(refreshAccounts);
       console.log('acounts[0]:', accounts[0]);
       console.log('selectedAddress:', window.ethereum.selectedAddress )
+     
+     
       await wallet.methods
               .approveTransfer(transferId)
               .send({from: refreshAccounts[0]});
@@ -87,8 +106,8 @@ function App() {
 
   return (
     <div>
-      <h1 style={{textAlign: 'center', color: '#00f'}}>Multisig Dapp</h1>
-      <Header approvers={approvers} quorum={quorum} />
+      <h1 style={{textAlign: 'center', color: '#fff', background: '#00f'}}>Multisig Dapp</h1>
+      <Header approvers={approvers} quorum={quorum} currentAccount={accounts}/>
       <NewTransfer createTransfer={createTransfer} />
       <TransferList transfers={transfers} approveTransfer={approveTransfer} />
     </div>

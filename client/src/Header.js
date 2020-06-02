@@ -1,8 +1,9 @@
 import React from 'react';
 
-function Header({approvers, quorum}) {
+function Header({approvers, quorum, currentAccount}) {
     return (
         <header style={headerstyle}>
+            Current Account: {currentAccount}
             <ul>
                 <li><h3>Approvers: </h3>{approvers.join(', ')}</li>
                 <li><h3>Quorum: </h3>{quorum}</li>
