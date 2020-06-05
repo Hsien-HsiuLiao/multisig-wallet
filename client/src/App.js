@@ -13,7 +13,7 @@ function App() {
   const [web3, setWeb3] = useState(undefined);
   const [accounts, setAccounts] = useState(undefined);
   const [wallet, setWallet] = useState(undefined);
-  const [approvers, setApprovers] = useState(undefined);
+  const [approvers, setApprovers] = useState([]);
   const [quorum, setQuorum] = useState(undefined);
   const [transfers, setTransfers] = useState([]);
   //let currentAccount = 0x0;
@@ -36,7 +36,7 @@ function App() {
       window.ethereum.on('accountsChanged', function(accounts) {
         console.log('eth.on', accounts);
         //currentAccount = accounts[0];
-        //console.log('currentAccount:', currentAccount)
+        console.log('currentAccount:', accounts)
         setAccounts(accounts);
         });
         
@@ -60,9 +60,9 @@ function App() {
   }
 
   const { ethereum } = window;
-  ethereum.on('accountsChanged', function() {
-     console.log('eth.on approveTransfer');
-   });
+  //ethereum.on('accountsChanged', function() {
+  //   console.log('eth.on approveTransfer');
+  // });
 
   const approveTransfer = (transferId, transferApprovals) => {
     console.log('transferApprovals:', transferApprovals);
@@ -93,7 +93,7 @@ function App() {
     typeof web3 === 'undefined'
     || typeof accounts === 'undefined'
     || typeof wallet === 'undefined'
-    || typeof approvers === 'undefined'
+    || approvers.length === 0
     || typeof quorum === 'undefined'
   ) {
     return (

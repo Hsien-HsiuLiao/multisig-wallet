@@ -1,3 +1,8 @@
+First 3 accounts should be able to create and approve transfers. If there are errors, reset transaction history for the first 3 accounts in MetaMask. Click top right, then Settings, then Advanced, and Reset Account. 
+
+Also, you can create a transaction to other accounts, but those other accounts cannot approve.
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
