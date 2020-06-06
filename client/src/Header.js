@@ -3,10 +3,13 @@ import React from 'react';
 function Header({approvers, quorum, currentAccount}) {
     return (
         <header style={headerstyle}>
-            Current Account: {currentAccount}
+            <h1 style={{textAlign: 'center', color: '#fff', background: '#00f'}}>
+                Multisig Dapp</h1>
+            <div style={{textAlign: 'right', color: '#fff', background: '#00f'}}>
+                Current Account: {currentAccount}</div>
             <ul>
                 <li><h3>Approvers: </h3>{approvers.join(', ')}</li>
-                <li><h3>Quorum: </h3>{quorum}</li>
+                <li><h5>Quorum: {quorum}</h5></li>
             </ul>
         </header>
     );

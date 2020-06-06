@@ -106,7 +106,6 @@ function App() {
 
   return (
     <div>
-      <h1 style={{textAlign: 'center', color: '#fff', background: '#00f'}}>Multisig Dapp</h1>
       <Header approvers={approvers} quorum={quorum} currentAccount={accounts}/>
       <NewTransfer createTransfer={createTransfer} />
       <TransferList transfers={transfers} approveTransfer={approveTransfer} />
