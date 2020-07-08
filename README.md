@@ -7,23 +7,23 @@ To run:
 
 Make sure you have truffle installed, 
 
-  'npm install -g truffle'
+  `npm install -g truffle`
 
 then run a development blockchain,
 
-  'truffle develop'
+  `truffle develop`
 
 compile the contracts at the develop console,
 
-  truffle develop > compile
+  `truffle develop > compile`
 
 then migrate the contracts
 
-  truffle develop > migrate
+  `truffle develop > migrate`
 
 cd to the client folder and run,
 
-  'npm start'
+  `npm start`
 
 
 
