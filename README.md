@@ -31,11 +31,11 @@ cd to the client folder and run,
 
 
 
-If having errors running npm, 
-Restore ownership of the user's npm related folders, to the current user, like this:
+_If having errors running npm, 
+Restore ownership of the user's npm related folders, to the current user, like this:_
 
 
-  sudo chown -R $USER:$GROUP ~/.npm
+  `sudo chown -R $USER:$GROUP ~/.npm`
 
-  sudo chown -R $USER:$GROUP ~/.config
+  `sudo chown -R $USER:$GROUP ~/.config`
 
