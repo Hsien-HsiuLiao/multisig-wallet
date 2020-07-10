@@ -1,6 +1,6 @@
 # Ethereum multi-signature wallet
 
-## Summary: A quorum of at least 2 out of 3 people must occur in order for funds to be transferred
+## Summary: This app will allow transactions to be created that will send ether from one Ethereum account to another. The transaction will be displayed in a list with an approve button. A quorum of at least 2 out of 3 people must occur in order for funds to be transferred.
 
 
 ### To run:
