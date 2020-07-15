@@ -58,3 +58,5 @@ Restore ownership of the user's npm related folders, to the current user, like t
 First 3 accounts should be able to create and approve transfers. If there are errors, reset transaction history for the first 3 accounts in MetaMask. Click top right, then Settings, then Advanced, and Reset Account. 
 
 Also, you can create a transaction to other accounts, but those other accounts cannot approve.
+
+![Screenshot](ScreenShot_multisig.png "Screenshot")
