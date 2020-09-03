@@ -5,7 +5,7 @@ This app will allow transactions to be created that will send ether from one Eth
 
 ### Install all packages
 
-`npm install`
+`npm install` in client folder
 
 ### Testing
 
