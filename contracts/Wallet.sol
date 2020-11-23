@@ -19,16 +19,17 @@ contract Wallet {
         approvers = _approvers;
         quorum = _quorum;
     }
-    
+    /// @return returns array of approvers of type address
     function getApprovers() external view returns(address[] memory) {
         return approvers;
     }
-    
+    /// @return returns array of transfers of struct Transfer
     function getTransfers() external view returns(Transfer[] memory) {
         return transfers;
     }
   
-    
+    /// @param amount How much ether to transfer
+    /// @param to Address of who is receiving the ether
     function createTransfer(uint amount, address payable to) external onlyApprover() {
         transfers.push(Transfer(
             transfers.length,
@@ -39,7 +40,7 @@ contract Wallet {
             )
         );
     }
-    
+    /// @param id ID of transfer to be approved
     function approveTransfer(uint id) external onlyApprover() {
         require(transfers[id].sent == false, 'transfer has already been sent');
         require(approvals[msg.sender][id] == false, 'cannot approve transfer twice');
