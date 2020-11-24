@@ -50,7 +50,7 @@ contract('Wallet', (accounts) => {
         assert(balance === '1000');
     });
 
-    it('should send transfer if wuorum reached', async () => {
+    it('should send transfer if quorum reached', async () => {
         const balanceBefore = web3.utils.toBN(await web3.eth.getBalance(accounts[6]));
         await wallet.createTransfer(100, accounts[6], {from: accounts[0]});
         await wallet.approveTransfer(0, {from:accounts[0]});
@@ -77,7 +77,7 @@ contract('Wallet', (accounts) => {
         );
     });
 
-    it('shouldNOT approve transfer twice', async () => {
+    it('should NOT approve transfer twice', async () => {
         await wallet.createTransfer(100, accounts[6], {from: accounts[0]});
         await wallet.approveTransfer(0, {from: accounts[0]});
         await expectRevert(
