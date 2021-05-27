@@ -49,6 +49,7 @@ function NewTransfer({createTransfer}) {
                 <input
                     id="to"
                     type="text"
+                    size="45"
                     onChange={e => updateTransfer(e, 'to')}
                 />
                 {' '}             

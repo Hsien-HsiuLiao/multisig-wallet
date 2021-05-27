@@ -4,11 +4,12 @@ function Header({approvers, quorum, currentAccount}) {
     return (
         <header style={headerstyle}>
             <h1 style={{textAlign: 'center', color: '#fff', background: '#00f'}}>
-                Multisig Dapp</h1>
+                Multi-signature Wallet Dapp</h1>
             <div style={{textAlign: 'right', color: '#fff', background: '#00f'}}>
                 Current Account: {currentAccount}</div>
             <ul>
                 <li><h3>Approvers: </h3>{approvers.join(', ')}</li>
+                <br></br>
                 <li><h5>Quorum: {quorum}</h5></li>
             </ul>
         </header>
