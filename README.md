@@ -64,6 +64,8 @@ Also, you can create a transaction to other accounts, but those other accounts c
 ## Testing on kovan testnet
 url: https://reverent-goodall-073e67.netlify.app/
 
+These accounts are used to test the app and must be imported into MetaMask
+
 0xf2a28e2922a91bf57274BF1477908f6BCA59Ae4E
 883e2fcdec6064314c3e96b36dbd27d99afcd19ea8427281f5d4b5511d21f1c8
 
@@ -74,4 +76,4 @@ url: https://reverent-goodall-073e67.netlify.app/
 dbf5a064f0a0aff431f6fddce276623f91f12eb7b0a0305e0158557095412838
 
 
-Wallet.sol 0x1cb8B81C88402a9764E70E6B03674f2eDC572f08
+(Wallet.sol 0x1cb8B81C88402a9764E70E6B03674f2eDC572f08)
