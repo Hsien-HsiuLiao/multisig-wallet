@@ -64,7 +64,7 @@ Also, you can create a transaction to other accounts, but those other accounts c
 ## Testing on kovan testnet
 url: https://reverent-goodall-073e67.netlify.app/
 
-These accounts are used to test the app and must be imported into MetaMask
+These accounts are used to test the app and must be imported into MetaMask https://metamask.io/
 
 0xf2a28e2922a91bf57274BF1477908f6BCA59Ae4E
 883e2fcdec6064314c3e96b36dbd27d99afcd19ea8427281f5d4b5511d21f1c8
