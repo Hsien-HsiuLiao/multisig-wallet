@@ -75,5 +75,7 @@ These accounts are used to test the app and must be imported into MetaMask https
 0x6aD093C7675A1b1AEB7e10c470ec0c64Ed81BCC8
 dbf5a064f0a0aff431f6fddce276623f91f12eb7b0a0305e0158557095412838
 
+To get fake ether for testing on kovan - https://faucet.kovan.network/
+
 
 (Wallet.sol 0x1cb8B81C88402a9764E70E6B03674f2eDC572f08)
