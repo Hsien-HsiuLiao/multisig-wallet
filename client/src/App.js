@@ -16,7 +16,6 @@ function App() {
   const [approvers, setApprovers] = useState([]);
   const [quorum, setQuorum] = useState(undefined);
   const [transfers, setTransfers] = useState([]);
-  //let currentAccount = 0x0;
   
 
   useEffect(() => {
@@ -34,9 +33,6 @@ function App() {
       setQuorum(quorum);
       setTransfers(transfers);
       window.ethereum.on('accountsChanged', function(accounts) {
-        console.log('eth.on', accounts);
-        //currentAccount = accounts[0];
-        console.log('currentAccount:', accounts)
         setAccounts(accounts);
         });
         
@@ -45,33 +41,17 @@ function App() {
     
   }, []);
 
-  //const createTransfer = transfer => {
     const createTransfer = async (transfer) => {
-      //const newtransfers = async () => {
         await wallet.methods
           .createTransfer(transfer.amount, transfer.to)
           .send({from: accounts[0]});
-       // const updated = await wallet.methods.getTransfers().call();
-        //setTransfers(updated);
-        setTransfers(await wallet.methods.getTransfers().call());
-     // };
-     // newtransfers();
-    
+        setTransfers(await wallet.methods.getTransfers().call());    
   }
 
-  const { ethereum } = window;
-  //ethereum.on('accountsChanged', function() {
-  //   console.log('eth.on approveTransfer');
-  // });
-
   const approveTransfer = (transferId, transferApprovals) => {
-    console.log('transferApprovals:', transferApprovals);
     const newtransfers = async () => {
       const refreshAccounts = await web3.eth.getAccounts();
-      console.log('refresh:', refreshAccounts[0]);
       setAccounts(refreshAccounts);
-      console.log('acounts[0]:', accounts[0]);
-      console.log('selectedAddress:', window.ethereum.selectedAddress )
      
      
       await wallet.methods
@@ -79,12 +59,6 @@ function App() {
               .send({from: refreshAccounts[0]});
       const updatedTransfer = await wallet.methods.getTransfers().call();
       setTransfers(updatedTransfer);
-      /*
-      if (updatedTransfer[transferId].approvals >= 2){
-        console.log('updatedTransfer count:', updatedTransfer[transferId].approvals);
-        document.getElementsByClassName("approveButton").disabled = true;
-      }
-      */
     };
     newtransfers();
   }
