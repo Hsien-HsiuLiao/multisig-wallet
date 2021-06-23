@@ -62,7 +62,7 @@ Also, you can create a transaction to other accounts, but those other accounts c
 ![Screenshot](ScreenShot_multisig.png "Screenshot")
 
 ## Testing on kovan testnet
-url: https://reverent-goodall-073e67.netlify.app/
+url: https://multi-sig-073e67.netlify.app/
 
 These accounts are used to test the app and must be imported into MetaMask https://metamask.io/
 
