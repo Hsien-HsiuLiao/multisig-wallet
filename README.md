@@ -55,12 +55,15 @@ url: https://multi-signature-wallet.netlify.app/
 These accounts are used to test the app, activity can be viewed on etherscan
 
 0xf2a28e2922a91bf57274BF1477908f6BCA59Ae4E
+
 https://kovan.etherscan.io/address/0xf2a28e2922a91bf57274BF1477908f6BCA59Ae4E
 
 0xd57B9b73a7F8A174eb09342330d8Ece7E6242587
+
 https://kovan.etherscan.io/address/0xd57B9b73a7F8A174eb09342330d8Ece7E6242587
 
 0x6aD093C7675A1b1AEB7e10c470ec0c64Ed81BCC8
+
 https://kovan.etherscan.io/address/0x6aD093C7675A1b1AEB7e10c470ec0c64Ed81BCC8
 
 To get fake ether for testing on kovan - https://faucet.kovan.network/
